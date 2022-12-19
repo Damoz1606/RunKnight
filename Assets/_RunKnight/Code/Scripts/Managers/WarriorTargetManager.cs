@@ -8,13 +8,11 @@ public class WarriorTargetManager : MonoBehaviour
     [SerializeField] public bool _isMovingToTarget;
     private Vector3 _origin;
 
+    public Vector3 Target => this._target.position;
+    public Vector3 Origin => this._origin;
+    public Transform TargetTransform => this._target;
     private void Start()
     {
         this._origin = this.transform.position;
     }
-
-    public Vector3 Target => this._target.position;
-    public Vector3 Origin => this._origin;
-
-    public Transform TargetTransform => this._target;
 }

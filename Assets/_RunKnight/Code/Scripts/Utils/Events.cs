@@ -4,6 +4,7 @@ using UnityEngine;
 
 enum Channel
 {
+    TARGET,
     CHARACTER,
     UI
 }
@@ -15,6 +16,10 @@ enum CharacterEvent
     JUMP,
     ATTACK,
     DEFENSE
+}
+
+enum TargetEvent {
+    MOVE_TO_TARGET
 }
 
 enum UIEvent
