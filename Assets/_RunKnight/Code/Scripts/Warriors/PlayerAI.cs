@@ -23,6 +23,7 @@ public class PlayerAI : BehaviourTree
     {
         Node root = new Selector(new List<Node>{
             new Sequence(new List<Node>{
+                new CheckStaminaBeforeRun(this.transform),
                 new CheckRunEvent(this.transform),
                 new TaskRun(this.transform),
                 new TaskLetWarriorsRun(this.transform),
