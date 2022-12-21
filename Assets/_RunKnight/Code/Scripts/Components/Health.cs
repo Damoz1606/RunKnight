@@ -37,6 +37,12 @@ public class Health : MonoBehaviour
         this.UpdateHealth(this._decrementValue, false);
     }
 
+    public bool TakeHit(float hit)
+    {
+        this.UpdateHealth(hit, false);
+        return this.CurrentHealth <= 0;
+    }
+
     public void UpdateHealth(float value, bool increase = true)
     {
         this._currentHealth += (increase) ? value : -value;
