@@ -1108,7 +1108,7 @@ MonoBehaviour:
   _waitDecreaseTime: 1
   _incrementValue: 10
   _decrementValue: 15
-  _maxStamina: 100
+  _maxStamina: 1000000
   _ui: {fileID: 1370139161}
 --- !u!114 &559635587
 MonoBehaviour:

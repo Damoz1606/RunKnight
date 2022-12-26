@@ -15,7 +15,7 @@ public class CheckMoveToTarget : Node
 
     public override NodeState Evaluate()
     {
-        if (_target._isMovingToTarget)
+        if (_target.IsMovingToTarget)
         {
             return NodeState.SUCCESS;
         }

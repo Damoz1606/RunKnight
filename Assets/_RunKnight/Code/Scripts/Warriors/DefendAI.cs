@@ -9,14 +9,7 @@ public class DefendAI : BehaviourTree
 {
     protected override Node _SetupTree()
     {
-        Node root = new Selector(new List<Node>{
-            new Sequence(new List<Node>{
-                new CheckThisCharacterOnTarget(this.transform),
-                new Sequence(new List<Node>{
-                    new CheckDefendFromEnemyEvent(this.transform),
-                    new TaskAttackEnemy(this.transform),
-                })
-            }),
+        Node root = new Sequence(new List<Node>{
             new Sequence(new List<Node>{
                 new Sequence(new List<Node>{
                     new CheckRunEvent(this.transform),
@@ -34,7 +27,14 @@ public class DefendAI : BehaviourTree
                         new TaskRemoveCharacterOnTarget(this.transform),
                     })
                 })
-            })
+            }),
+            new Sequence(new List<Node>{
+                new CheckThisCharacterOnTarget(this.transform),
+                new Sequence(new List<Node>{
+                    new CheckDefendFromEnemyEvent(this.transform),
+                    new TaskDefendFromEnemy(this.transform),
+                })
+            }),
         });
 
         return root;
