@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private ObstacleManager _obstacleManager;
+/*     [SerializeField] private ObstacleManager _obstacleManager;
 
     private void Start()
     {
@@ -23,5 +23,5 @@ public class SpawnManager : MonoBehaviour
     public void KillSpawnEnemy(FlyEye shape)
     {
         this._obstacleManager.KillObstacle(shape);
-    }
+    } */
 }

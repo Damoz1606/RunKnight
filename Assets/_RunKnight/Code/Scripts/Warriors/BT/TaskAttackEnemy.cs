@@ -26,8 +26,19 @@ public class TaskAttackEnemy : Node
         }
         else
         {
-            // Enemy is Dead stuff
-            Debug.Log("Attack");
+            Collider[] colliders = Physics.OverlapSphere(this._transform.position, this._attack.ActionRadius, this._attack.EnemyLayer);
+            if (colliders.Length > 0)
+            {
+                foreach (Collider collider in colliders)
+                {
+                    EnemyHealthManager _enemyHealth = collider.GetComponent<EnemyHealthManager>();
+                    if (_enemyHealth.TakeHit(_attack.ActionForce))
+                    {
+                        Debug.Log($"{collider.name}: death");
+                    }
+
+                }
+            }
             this._isWaiting = true;
             this._cooldownCounter = 0;
         }

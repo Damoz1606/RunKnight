@@ -15,4 +15,5 @@ public class WarriorActionManager : MonoBehaviour
     public float ActionForce => this._actionForce;
     public bool InTargetPosition { get => _inTargetPosition; set => _inTargetPosition = value; }
     public float ActionCooldownTime { get => _actionCooldownTime; set => _actionCooldownTime = value; }
+    public LayerMask EnemyLayer => _enemyLayer;
 }

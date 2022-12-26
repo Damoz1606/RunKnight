@@ -26,8 +26,16 @@ public class TaskDefendFromEnemy : Node
         }
         else
         {
-            // Enemy is recoil stuff or obtacle destroy
-            Debug.Log("Defend");
+            Collider[] colliders = Physics.OverlapSphere(this._transform.position, this._defend.ActionRadius, this._defend.EnemyLayer);
+            if (colliders.Length > 0)
+            {
+                foreach (Collider collider in colliders)
+                {
+                    EnemyRecoilManager _enemyRecoil = collider.GetComponent<EnemyRecoilManager>();
+                    _enemyRecoil.TakeForceAndProtectSelf(_defend.ActionForce);
+
+                }
+            }
             this._isWaiting = true;
             this._cooldownCounter = 0;
         }

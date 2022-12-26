@@ -14,6 +14,10 @@ public class EnemyAI : BehaviourTree
                 new CheckPlayerInAttackArea(this.transform),
                 new TaskAttackPlayer(this.transform)
             }),
+            new Sequence(new List<Node>{
+                new CheckEnemyRecoil(this.transform),
+                new TaskEnemyRecoil(this.transform)
+            }),
             new TaskPatrol(this.transform),
         });
 
