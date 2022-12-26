@@ -11,10 +11,8 @@ public class EnemyAI : BehaviourTree
         Node root = new Selector(new List<Node>{
             new Sequence(new List<Node>{
                 new CheckPlayerTarget(this.transform),
-                new Sequence(new List<Node>{
-                    new CheckPlayerInAttackArea(this.transform),
-                    new TaskAttackPlayer(this.transform)
-                })
+                new CheckPlayerInAttackArea(this.transform),
+                new TaskAttackPlayer(this.transform)
             }),
             new TaskPatrol(this.transform),
         });

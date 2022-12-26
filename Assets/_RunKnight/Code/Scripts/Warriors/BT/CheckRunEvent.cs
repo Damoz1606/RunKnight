@@ -17,7 +17,7 @@ public class CheckRunEvent : Node
 
     public override NodeState Evaluate()
     {
-        if (_runner._run)
+        if (_runner.Run)
         {
             this._animator.SetBool(AnimatorConstants.KNIGHT_GROUND, true);
             this._animator.SetInteger(AnimatorConstants.KNIGHT_STATE, 1);

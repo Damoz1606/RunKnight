@@ -28,12 +28,12 @@ public abstract class _ACharacter : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        Manager.EventManager.StartListening(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), this.RunTrigger);
+        EventManager.StartListening(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), this.RunTrigger);
     }
 
     protected virtual void OnDisable()
     {
-        Manager.EventManager.StopListening(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), this.RunTrigger);
+        EventManager.StopListening(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), this.RunTrigger);
     }
 
     protected abstract void RunTrigger(object message);

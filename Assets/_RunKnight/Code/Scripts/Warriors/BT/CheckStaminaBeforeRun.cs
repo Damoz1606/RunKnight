@@ -30,7 +30,7 @@ public class CheckStaminaBeforeRun : Node
         this._animator.SetBool(AnimatorConstants.KNIGHT_GROUND, false);
         this._animator.SetInteger(AnimatorConstants.KNIGHT_STATE, 0);
         this._runner.StopSpeed();
-        this._runner._run = false;
+        this._runner.Run = false;
         this._animator.speed = 1;
         this.state = NodeState.RUNNING;
         return this.state;

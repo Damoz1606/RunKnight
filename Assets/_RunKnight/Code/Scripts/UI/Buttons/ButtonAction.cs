@@ -8,6 +8,6 @@ public class ButtonAction : MonoBehaviour, IPointerClickHandler
     [SerializeField] private CharacterEvent action;
     public void OnPointerClick(PointerEventData eventData)
     {
-        Manager.EventManager.TriggerEvent(Channel.CHARACTER.ToString(), action.ToString(), null);
+        EventManager.TriggerEvent(Channel.CHARACTER.ToString(), action.ToString(), null);
     }
 }

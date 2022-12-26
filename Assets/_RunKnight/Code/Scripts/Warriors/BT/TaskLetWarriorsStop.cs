@@ -21,8 +21,8 @@ public class TaskLetWarriorsStop : Node
 
     public override NodeState Evaluate()
     {
-        if (this._runnerAttack._run) this._runnerAttack._run = false;
-        if (this._runnerDefend._run) this._runnerDefend._run = false;
+        if (this._runnerAttack.Run) this._runnerAttack.Run = false;
+        if (this._runnerDefend.Run) this._runnerDefend.Run = false;
 
         this.state = NodeState.RUNNING;
         return this.state;

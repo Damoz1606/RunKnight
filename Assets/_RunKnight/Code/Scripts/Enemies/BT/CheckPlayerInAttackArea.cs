@@ -18,7 +18,6 @@ public class CheckPlayerInAttackArea : Node
     public override NodeState Evaluate()
     {
         object t = this.GetData("target-player");
-        Debug.Log(t);
         if (t == null)
         {
             state = NodeState.FAILURE;

@@ -21,6 +21,6 @@ public abstract class _AAction : MonoBehaviour
 
     protected void RestoreRunning()
     {
-        Manager.EventManager.TriggerEvent(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), true);
+        EventManager.TriggerEvent(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), true);
     }
 }

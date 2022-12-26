@@ -10,12 +10,31 @@ public class RunnerManager : MonoBehaviour
     [SerializeField] private float _incrementSpeed = 1;
     [SerializeField] private float _incrementTime = 1;
     [SerializeField] private float _decrementSpeed = 1;
-    [SerializeField] public bool _run = false;
+    [SerializeField] private bool _run = false;
+    [SerializeField] private bool _isPlayer = false;
     private bool _hasStopped = true;
 
     public float Speed => _speed;
     public float IncrementTime => _incrementTime;
     public float InitialSpeed => _initialSpeed;
+    public bool Run { get => _run; set => _run = value; }
+
+    private void OnEnable()
+    {
+        EventManager.StartListening(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), ActiveRunner);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListening(Channel.CHARACTER.ToString(), CharacterEvent.RUN.ToString(), ActiveRunner);
+    }
+
+    private void ActiveRunner(object data)
+    {
+        if (!this._isPlayer) return;
+        bool flag = (bool)data;
+        this._run = flag;
+    }
 
     public void StartSpeed()
     {

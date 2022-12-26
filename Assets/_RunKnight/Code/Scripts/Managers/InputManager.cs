@@ -8,12 +8,12 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Manager.EventManager.TriggerEvent(Channel.CHARACTER.ToString(), CharacterEvent.ATTACK.ToString(), null);
+            EventManager.TriggerEvent(Channel.CHARACTER.ToString(), CharacterEvent.ATTACK.ToString(), null);
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Manager.EventManager.TriggerEvent(Channel.CHARACTER.ToString(), CharacterEvent.DEFENSE.ToString(), null);
+            EventManager.TriggerEvent(Channel.CHARACTER.ToString(), CharacterEvent.DEFENSE.ToString(), null);
         }
     }
 }

@@ -30,8 +30,8 @@ public class TaskAttackPlayer : Node
         if (this._counter >= this._enemyAction.ActionCooldownTime)
         {
             bool isPlayerDead = this._targetHealth.TakeHit(this._enemyAction.ActionForce);
-            this.ClearData("target-player");
             this._animator.SetBool("Attack", false);
+            this.ClearData("target-player");
             this._counter = 0;
         }
 
