@@ -10,6 +10,7 @@ public class TaskAttackPlayer : Node
     private Health _targetHealth;
     private EnemyActionManager _enemyAction;
     private float _counter = 0;
+    private bool _isWaiting = false;
 
     public TaskAttackPlayer(Transform transform)
     {
@@ -26,15 +27,24 @@ public class TaskAttackPlayer : Node
             this._targetHealth = target.GetComponent<Health>();
             this._lastTarget = target;
         }
-        this._counter += Time.deltaTime;
-        if (this._counter >= this._enemyAction.ActionCooldownTime)
+        if (this._isWaiting)
         {
-            bool isPlayerDead = this._targetHealth.TakeHit(this._enemyAction.ActionForce);
-            this._animator.SetBool("Attack", false);
-            this.ClearData("target-player");
-            this._counter = 0;
+            this._counter += Time.deltaTime;
+            if (this._counter >= this._enemyAction.ActionCooldownTime)
+            {
+                this._animator.SetBool("Attack", false);
+                this.ClearData("target-player");
+                Manager.SpawnManager.Kill(this._transform.GetComponent<EnemyManager>());
+            }
         }
-
+        else
+        {
+            this._animator.SetBool("Attack", true);
+            this._targetHealth.TakeHit(this._enemyAction.ActionForce);
+            this._counter = 0;
+            this._isWaiting = true;
+            Debug.Log("Player Hurt");
+        }
         this.state = NodeState.RUNNING;
         return this.state;
     }

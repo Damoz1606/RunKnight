@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(GameManager))]
 [RequireComponent(typeof(ScoreManager))]
 [RequireComponent(typeof(StateManager))]
+[RequireComponent(typeof(SpawnManager))]
 public class Manager : MonoBehaviour
 {
     private static AudioManager _audioManager;
@@ -14,6 +15,7 @@ public class Manager : MonoBehaviour
     private static GameManager _gameManager;
     private static ScoreManager _scoreManager;
     private static StateManager _stateManager;
+    private static SpawnManager _spawnManager;
 
     public static AudioManager AudioManager
     {
@@ -61,6 +63,16 @@ public class Manager : MonoBehaviour
         }
     }
 
+    public static SpawnManager SpawnManager
+    {
+        get
+        {
+            if (_spawnManager == null)
+                _spawnManager = FindObjectOfType<SpawnManager>();
+            return _spawnManager;
+        }
+    }
+
     private void Awake()
     {
         _audioManager = GetComponent<AudioManager>();
@@ -68,5 +80,6 @@ public class Manager : MonoBehaviour
         _gameManager = GetComponent<GameManager>();
         _scoreManager = GetComponent<ScoreManager>();
         _stateManager = GetComponent<StateManager>();
+        _spawnManager = GetComponent<SpawnManager>();
     }
 }

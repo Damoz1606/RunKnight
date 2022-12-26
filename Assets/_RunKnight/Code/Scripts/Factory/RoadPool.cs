@@ -28,7 +28,7 @@ public class RoadPool : _APool<Road>
         if (this.UsePool)
             this.Pool.Release(shape);
         else
-            this.OnKill(shape);
+            this.OnRemove(shape);
     }
 
     public override void OnReleased(Road shape)

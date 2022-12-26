@@ -27,6 +27,7 @@ public class CheckRunEvent : Node
         this._animator.SetBool(AnimatorConstants.KNIGHT_GROUND, false);
         this._animator.SetInteger(AnimatorConstants.KNIGHT_STATE, 0);
         this._runner.StopSpeed();
+        Manager.ScoreManager.Speed = 0;
         this._animator.speed = 1;
         return NodeState.FAILURE;
     }

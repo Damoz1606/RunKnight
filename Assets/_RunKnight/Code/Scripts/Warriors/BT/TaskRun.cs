@@ -32,6 +32,7 @@ public class TaskRun : Node
             this._animator.SetBool(AnimatorConstants.KNIGHT_GROUND, true);
             this._animator.SetInteger(AnimatorConstants.KNIGHT_STATE, 1);
             this._runner.IncrementSpeed();
+            Manager.ScoreManager.Speed = this._runner.Speed;
             this._animator.speed = this._runner.Speed * 1 / this._runner.InitialSpeed;
         }
 

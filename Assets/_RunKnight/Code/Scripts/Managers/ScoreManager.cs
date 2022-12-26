@@ -19,9 +19,9 @@ public class ScoreManager : MonoBehaviour
         this.UpdateScore(0);
     }
 
-    public void OnUpdate()
+    public void RunningUpdate()
     {
-        this.UpdateScore(this._increseValue * this.Speed);
+        this.UpdateScore(this._increseValue * this.Speed * Time.deltaTime);
     }
 
     public void UpdateScore(float value)

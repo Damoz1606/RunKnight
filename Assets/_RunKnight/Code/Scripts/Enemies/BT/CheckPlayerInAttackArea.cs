@@ -26,7 +26,6 @@ public class CheckPlayerInAttackArea : Node
         Transform target = (Transform)t;
         if (Vector3.Distance(this._transform.position, target.position) <= this._enemyActionManager.ActionRadius)
         {
-            this._animator.SetBool("Attack", true);
             state = NodeState.SUCCESS;
             return state;
         }

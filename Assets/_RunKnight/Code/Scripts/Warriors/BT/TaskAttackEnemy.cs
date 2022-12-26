@@ -32,11 +32,7 @@ public class TaskAttackEnemy : Node
                 foreach (Collider collider in colliders)
                 {
                     EnemyHealthManager _enemyHealth = collider.GetComponent<EnemyHealthManager>();
-                    if (_enemyHealth.TakeHit(_attack.ActionForce))
-                    {
-                        Debug.Log($"{collider.name}: death");
-                    }
-
+                    _enemyHealth.TakeHit(_attack.ActionForce);
                 }
             }
             this._isWaiting = true;

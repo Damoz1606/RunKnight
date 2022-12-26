@@ -18,7 +18,7 @@ public class PlayState : MonoBehaviour, _IState
     {
         if (!Manager.GameManager.IsGameOver && Manager.GameManager.HasStarted)
         {
-            Manager.ScoreManager.OnUpdate();
+            Manager.ScoreManager.RunningUpdate();
         }
     }
 }

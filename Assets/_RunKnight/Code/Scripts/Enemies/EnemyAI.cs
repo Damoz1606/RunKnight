@@ -4,6 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Patrol))]
 [RequireComponent(typeof(EnemyActionManager))]
+[RequireComponent(typeof(EnemyHealthManager))]
+[RequireComponent(typeof(EnemyRecoilManager))]
 public class EnemyAI : BehaviourTree
 {
     protected override Node _SetupTree()
